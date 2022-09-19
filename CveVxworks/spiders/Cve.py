@@ -1,5 +1,4 @@
 import scrapy , json 
-import pandas as pd
 
 class CveSpider(scrapy.Spider):
     name = 'Cve' #name of spider
@@ -20,7 +19,4 @@ class CveSpider(scrapy.Spider):
             })
             print(self.result[i], end="\n\n") #print result)
         json.dump(self.result, open("result.json", "w")) #save result to json file
-        file = pd.read_json("result.json") #read json file
-        file = pd.DataFrame(file) #convert to dataframe
-        file.to_csv("result.csv", index=False) #save json file to csv
 
