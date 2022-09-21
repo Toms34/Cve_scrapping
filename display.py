@@ -3,7 +3,7 @@ import flask, json
 app = flask.Flask(__name__)
 
 f = open("result.json", "r") #open json file with result from Cve.py
-
+f2 = open("resultAll.json", "r") #open json file with result from CveAll.py
 #transform json to html
 def json2html(json):
     table =f'<table border="3"><tr>'
@@ -18,10 +18,14 @@ def json2html(json):
     table += '</table>'
     return table
 
+@app.route('/all')
+def All():
+    return json2html(json.load(f2))
 
 @app.route('/')
 def index():
     return json2html(json.loads(f.read()))
 
 if __name__ == '__main__':
-    app.run(debug=False,host='0.0.0.0',port=80) #run app
+    app.run(debug=False,port=80,host='0.0.0.0') #run app
+
