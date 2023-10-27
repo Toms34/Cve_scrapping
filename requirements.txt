@@ -2,3 +2,5 @@ scrapy==2.6.2
 flask==2.0.3
 PyDispatcher==2.0.6
 setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
+twisted>=23.10.0rc1 # not directly required, pinned by Snyk to avoid a vulnerability
+werkzeug>=3.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
